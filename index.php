@@ -29,31 +29,18 @@
 
     </header>
     <main>
-        <div class = "m2">
+        <div class="Menu">
+            <div class="box">
+             <ul>
+                   <li> <a href= "#"> Home </a> </li>
+                  <li> <a href= "#"> Product 1 </a> </li>
+                  <li> <a href= "#"> Home 2 </a> </li>
+                   <li> <a href= "#"> home 3 </a> </li>
+             </ul>
+             <div class="product">
 
-        <?php
-        $test = "<h1>10<h1>";
-        $test2 = "<h2>8<h2>";
-        print($test);
-        echo $test2;#.$test2;
-    
-        #$Result, sqlquery,vardump,$_post
-        ?>
-        </div>
-    </div>
-    <div class="dranken">
-        <div class="cola">
-            <table>
-                <tr>
-                    Cola
-                </tr>
-                <tr>
-                € 4,-
-                </tr>
-                
-            </table>
+            </div> 
         </div> 
-    </div>    
     </main>
     <footer>
         Product created by Sandervdv
