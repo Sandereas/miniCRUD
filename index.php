@@ -26,21 +26,44 @@
 </style>
 <body>
     <header>
-
+        <div class="box">
+            <ul>
+                <li> <a href= "#"> Home </a> </li>
+                <li> <a href= "#"> Categorie </a> </li>
+                <li> <a href= "#"> Food </a> </li>
+                <li> <a href= "#"> Einde </a> </li>
+            </ul>
+        </div> 
     </header>
     <main>
-        <div class="Menu">
-            <div class="box">
-             <ul>
-                   <li> <a href= "#"> Home </a> </li>
-                  <li> <a href= "#"> Product 1 </a> </li>
-                  <li> <a href= "#"> Home 2 </a> </li>
-                   <li> <a href= "#"> home 3 </a> </li>
-             </ul>
-             <div class="product">
+        <div class ="box">
+            <b> <h1> Dashboard </h1> </b>
 
-            </div> 
-        </div> 
+            <div class="container">
+                <h1> 10 </h1> <br>
+                Categories
+            </div>
+
+            <div class="container">
+                <h1> 10 </h1> <br>
+                Categories
+            </div>
+
+            <div class="container">
+                <h1> 10 </h1> <br>
+                Categories
+            </div>
+
+            <div class="container">
+                <h1> 10 </h1> <br>
+                Categories
+            </div>
+
+            <div class="container">
+                <h1> 10 </h1> <br>
+                Categories
+            </div>
+        </div>
     </main>
     <footer>
         Product created by Sandervdv
