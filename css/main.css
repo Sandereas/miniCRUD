@@ -60,6 +60,90 @@ main {
 }
 
 
+
+/* table */
+
+table {
+    width: 100%;
+    text-align: center;
+    border: 2px solid black;
+    padding: 1px;
+    background-color: orange;
+    color: black;
+}
+td {
+    border: 1px solid black;
+}
+.tableaddadmin {
+    width: 30%;
+}
+
+/* Buttons */
+
+.buttonadmin {
+    background-color: chocolate;
+    padding: 1%;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    
+}
+.buttonadmin:hover {
+    color:white;
+    background-color: black;
+}
+
+.buttonupdate {
+    background-color: yellow;
+    padding: 1%;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    
+}
+.buttonupdate:hover {
+    color:white;
+    background-color: black;
+}
+
+.buttondelete {
+    background-color: red;
+    padding: 1%;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    
+}
+.buttondelete:hover {
+    color:white;
+    background-color: black;
+}
+.buttonfood {
+    background-color: chocolate;
+    padding: 1%;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    
+}
+.buttonfood:hover {
+    color:white;
+    background-color: black;
+}
+.buttoncategorie {
+    background-color: chocolate;
+    padding: 1%;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    
+}
+.buttoncategorie:hover {
+    color:white;
+    background-color: black;
+}
+
+
 /* Footer */
 footer {
     background-color: orange;
