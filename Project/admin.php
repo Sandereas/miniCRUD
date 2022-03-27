@@ -1,10 +1,10 @@
 <?php include('data/header.php'); ?>
+    <main>
+        <div class ="box">
+            <b> <h1> Editor The Web</h1> </b>
+            <br>
 
-    <div class="mainer">
-        <div class="box"> 
-            <h1> Add Admin</h1>
-
-            <br> <br>
+            <br>
 
             <?php
                 if(isset($_SESSION['add']))
@@ -13,96 +13,70 @@
                     unset($_SESSION['add']);
                  }
             ?>
+            <br> <br>
+
+            <a href="admin-add.php" class="buttonadmin"> Add Admin</a>
+            <br>
             <br>
 
-            <form action="" method="POST"> 
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Gebruikersnaam</th>
+                    <th>Email</th>
+                    <th>Naam</th>
+                    <th>Actions</th>
+                </tr>
 
-            <table class ="tableaddadmin2">
-                <tr>
-                    <td>Gebruikersnaam</td>
-                    <td><input type="text" name="gebruikersnaam" placeholder="Typ hier uw gebruikersnaam" ></td> <br>
-                </tr>
-                <tr>
-                    <td>Wachtwoord</td>
-                    <td><input type="password" name="wachtwoord" placeholder="Typ hier uw wachtwoord" ></td> 
-                </tr>
-                <tr>
-                    <td>Email</td>
-                    <td><input type="email" name="email" placeholder="Typ hier uw email" ></td> <br>
-                </tr>
-                <tr>
-                    <td>Naam</td>
-                    <td><input type="text" name="naam" placeholder="Typ hier uw naam in" ></td> <br>
-                </tr>
-                <tr>
-                    <td>Woonplaats</td>
-                    <td><input type="text" name="woonplaats" placeholder="Typ hier uw woonplaats" ></td> <br>
-                </tr>
-                <tr>
-                    <td>Straatnaam</td>
-                    <td><input type="text" name="straatnaam" placeholder="Typ hier uw straatnaam" ></td> <br>
-                </tr>
-                <tr>
-                    <td>Huisnummer</td>
-                    <td><input type="text" name="huisnummer" placeholder="Typ hier uw huisnummer" ></td> <br>
-                </tr>
-                <tr>
-                    <td>Telefoonnummer</td>
-                    <td><input type="tel" name="telefoonnummer" placeholder="Typ hier uw telefoonnummer" ></td> <br>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input type="submit" name="submit" value="Add Admin" class="buttonsub">
-                    </td>
-                </tr>
+                <?php 
+
+                    $sql = "SELECT * FROM gebruikers";
+                    $res = mysqli_query($conn, $sql);
+
+                    if($res == TRUE) 
+                    {
+                        $count = mysqli_num_rows($res);
+
+                        $ids =1;
+                    }
+                        if($count>0)
+                        {
+                            while($rows=mysqli_fetch_assoc($res))
+                             // using while loop to get all the data from the database
+
+                            {
+                                $id = $rows['id'];
+                                $gebruikersnaam = $rows['gebruikersnaam'];
+                                $email = $rows ['email'];
+                                $naam = $rows['naam'];
+
+
+                                ?>
+
+                                    <tr>
+                                        <td><?php echo $ids ++ ?> </td>
+                                        <td><?php echo $gebruikersnaam; ?> </td>
+                                        <td><?php echo $email; ?> </td>
+                                        <td><?php echo $naam; ?> </td>
+                                        <td>
+                                            <a href="#" class="buttonupdate"> Update admin </a> 
+                                            <a href="<?php echo SiteURL; ?>admin-del.php<?php echo $id; ?>" class="buttondelete"> Delete Admin </a> 
+                                        </td>
+                                    </tr>
+
+                                <?php
+
+
+
+                            }
+                            
+                        }
+                        else 
+                        {
+                            
+                        }
+                ?>
             </table>
-            </form>
-        </div> 
-    </div>
+        </div>
+    </main>
 <?php include('data/footer.php'); ?>
-
-<?php
-    //Add Admin
-    if(isset($_POST['submit']))
-{
-    $gebruikersnaam = $_POST ['gebruikersnaam'];
-    $wachtwoord = md5($_POST ['wachtwoord']);
-    $email = $_POST ['email'];
-    $naam = $_POST ['naam'];
-    $woonplaats = $_POST ['woonplaats'];
-    $straatnaam = $_POST ['straatnaam'];
-    $huisnummer = $_POST ['huisnummer'];
-    $telefoonnummer = $_POST ['telefoonnummer'];
-
-    //insert in SQL
-
-    $sql = "INSERT INTO gebruikers SET
-        gebruikersnaam ='$gebruikersnaam',
-        wachtwoord ='$wachtwoord',
-        email ='$email',
-        naam ='$naam',
-        woonplaats ='$woonplaats',
-        straatnaam='$straatnaam',
-        huisnummer='$huisnummer',
-        telefoonnummer = '$telefoonnummer'
-
-    ";
-    
-    // uitvoeren en opslaan in de database
-
-
-    $res = mysqli_query($conn, $sql) or die(mysqli_error());
-
-    if($res == TRUE)
-    {
-        //echo "data inserted";
-        $_SESSION['add'] = "Admin Added Succesfull";
-        header("location:".SiteURL. 'project/login.php');
-    }
-    else {
-        //echo "error";
-        $_SESSION['add'] = "Failed to add Admin";
-        header("location:".SiteURL. 'project/admin.php');
-    }
-}
-?>

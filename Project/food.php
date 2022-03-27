@@ -39,7 +39,7 @@
         <td>017194@student.roc-nijmegen.nl</td>
         <td>
             <a href="#" class="buttonupdate"> Update admin </a> 
-            <a href="#" class="buttondelete"> Delete Admin </a> 
+            <a href="admin-del.php" class="buttondelete"> Delete Admin </a> 
         </td>
     </tr>
     </table>
