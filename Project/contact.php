@@ -4,7 +4,7 @@
             <b> <h1> Contact</h1> </b>
             <br>
 
-    <table>
+    <table class="table1">
     <tr>
         <th>ID</th>
         <th>Gebruikersnaam</th>
