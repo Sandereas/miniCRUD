@@ -24,10 +24,12 @@
     <header>
         <div class="box">
             <ul>
-                <li> <a href= "#"> Home </a> </li>
-                <li> <a href= "#"> Categorie </a> </li>
-                <li> <a href= "#"> Food </a> </li>
-                <li> <a href= "#"> Einde </a> </li>
+                <li> <a href= "index.php"> Home </a> </li>
+                <li> <a href= "login.php"> Login </a> </li>
+                <li> <a href= "category.php"> Category </a> </li>
+                <li> <a href= "food.php"> Food </a> </li>
+                <li> <a href= "order.php"> Order </a> </li>
+                <li> <a href= "contact.php"> Contact </a> </li>
             </ul>
         </div> 
     </header>
