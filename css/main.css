@@ -16,7 +16,7 @@
 
 /* Header settings */
 header {
-    background-color: orange;
+    background-color: green;
     text-align: center; 
     padding-top: 3px;
     border-bottom: 1px solid black;
@@ -63,7 +63,7 @@ main {
 
 /* table */
 
-table {
+.table1 {
     width: 100%;
     text-align: center;
     border: 2px solid black;
@@ -71,10 +71,11 @@ table {
     background-color: orange;
     color: black;
 }
-td {
+
+.table1 td {
     border: 1px solid black;
 }
-.tableaddadmin {
+.tableaddadmin2 {
     width: 30%;
 }
 
