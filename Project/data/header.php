@@ -1,12 +1,3 @@
-<?php
-
- $dbhost = "localhost";
- $dbuser = "admin";
- $dbpass = "123";
- $db = "minicrud";
- $conn = new mysqli($dbhost, $dbuser, $dbpass,$db);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
