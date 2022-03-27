@@ -6,7 +6,7 @@
 
             <form action="" method="POST"> </form>
 
-            <table class ="tableaddadmin">
+            <table class ="tableaddadmin2">
                 <tr>
                     <td>Naam</td>
                     <td><input type="text" naam="Naam" placeholder="Typ hier uw naam" ></td> <br>
