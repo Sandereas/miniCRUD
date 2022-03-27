@@ -50,16 +50,16 @@
 
                                 ?>
 
-                <tr>
+                                    <tr>
                                         <td><?php echo $id ?> </td>
                                         <td><?php echo $gebruikersnaam; ?> </td>
                                         <td><?php echo $email; ?> </td>
                                         <td><?php echo $naam; ?> </td>
-                    <td>
-                        <a href="#" class="buttonupdate"> Update admin </a> 
-                        <a href="#" class="buttondelete"> Delete Admin </a> 
-                    </td>
-                </tr>
+                                        <td>
+                                            <a href="#" class="buttonupdate"> Update admin </a> 
+                                            <a href="#" class="buttondelete"> Delete Admin </a> 
+                                        </td>
+                                    </tr>
 
                                 <?php
 

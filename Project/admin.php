@@ -4,6 +4,17 @@
         <div class="box"> 
             <h1> Add Admin</h1>
 
+            <br> <br>
+
+            <?php
+                if(isset($_SESSION['add']))
+                 {
+                    echo $_SESSION['add'];
+                    unset($_SESSION['add']);
+                 }
+            ?>
+            <br>
+
             <form action="" method="POST"> 
 
             <table class ="tableaddadmin2">
@@ -24,8 +35,16 @@
                     <td><input type="text" name="naam" placeholder="Typ hier uw naam in" ></td> <br>
                 </tr>
                 <tr>
-                    <td>Adres</td>
-                    <td><input type="text" name="adres" placeholder="Typ hier uw adres" ></td> <br>
+                    <td>Woonplaats</td>
+                    <td><input type="text" name="woonplaats" placeholder="Typ hier uw woonplaats" ></td> <br>
+                </tr>
+                <tr>
+                    <td>Straatnaam</td>
+                    <td><input type="text" name="straatnaam" placeholder="Typ hier uw straatnaam" ></td> <br>
+                </tr>
+                <tr>
+                    <td>Huisnummer</td>
+                    <td><input type="text" name="huisnummer" placeholder="Typ hier uw huisnummer" ></td> <br>
                 </tr>
                 <tr>
                     <td>Telefoonnummer</td>
@@ -50,7 +69,9 @@
     $wachtwoord = md5($_POST ['wachtwoord']);
     $email = $_POST ['email'];
     $naam = $_POST ['naam'];
-    $adres = $_POST ['adres'];
+    $woonplaats = $_POST ['woonplaats'];
+    $straatnaam = $_POST ['straatnaam'];
+    $huisnummer = $_POST ['huisnummer'];
     $telefoonnummer = $_POST ['telefoonnummer'];
 
     //insert in SQL
@@ -60,17 +81,28 @@
         wachtwoord ='$wachtwoord',
         email ='$email',
         naam ='$naam',
-        adres='$adres ',
+        woonplaats ='$woonplaats',
+        straatnaam='$straatnaam',
+        huisnummer='$huisnummer',
         telefoonnummer = '$telefoonnummer'
 
     ";
     
-    // uitvoeren en opslaan SQL
-    $conn = mysqli_connect('localhost', 'root', '') or die(mysqli_error());
-    $db_select = mysqli_select_db($conn, 'minicrud') or die(mysqli_error());
-    
-    //$res = mysqli_query($conn, $sql) or die(mysqli_error());
+    // uitvoeren en opslaan in de database
 
 
+    $res = mysqli_query($conn, $sql) or die(mysqli_error());
+
+    if($res == TRUE)
+    {
+        //echo "data inserted";
+        $_SESSION['add'] = "Admin Added Succesfull";
+        header("location:".SiteURL. 'project/login.php');
+    }
+    else {
+        //echo "error";
+        $_SESSION['add'] = "Failed to add Admin";
+        header("location:".SiteURL. 'project/admin.php');
+    }
 }
 ?>

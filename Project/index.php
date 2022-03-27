@@ -4,28 +4,28 @@
             <b> <h1> Dashboard </h1> </b>
 
             <div class="container">
-                <h1> 10 </h1> <br>
-                Categories
+                <h1> food</h1> <br>
+                GG
             </div>
 
             <div class="container">
-                <h1> 10 </h1> <br>
-                Categories
+                <h1> Drinken </h1> <br>
+                GG
             </div>
 
             <div class="container">
-                <h1> 10 </h1> <br>
-                Categories
+                <h1> Special </h1> <br>
+                GG
             </div>
 
             <div class="container">
-                <h1> 10 </h1> <br>
-                Categories
+                <h1> Burgers </h1> <br>
+                GG
             </div>
 
             <div class="container">
-                <h1> 10 </h1> <br>
-                Categories
+                <h1> Contact </h1> <br>
+                GG
             </div>
         </div>
     </main>
