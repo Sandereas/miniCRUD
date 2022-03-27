@@ -46,7 +46,10 @@ header ul li a:hover {
 main {
     background-color: grey;
     color: black;
-
+}
+.mainer {
+    background-color: grey;
+    color: black;
 }
 
 .container {
@@ -113,8 +116,8 @@ td {
     text-decoration: none;
     color: black;
     font-weight: bold;
-    
 }
+    
 .buttondelete:hover {
     color:white;
     background-color: black;
@@ -144,7 +147,17 @@ td {
     background-color: black;
 }
 
-
+.buttonsub {
+    background-color: Green;
+    padding: 1%;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.buttonsub:hover {
+    color:white;
+    background-color: black;
+}
 /* Footer */
 footer {
     background-color: orange;
