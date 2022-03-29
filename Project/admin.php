@@ -60,7 +60,7 @@
                                         <td><?php echo $naam; ?> </td>
                                         <td>
                                             <a href="#" class="buttonupdate"> Update admin </a> 
-                                            <a href="<?php echo SiteURL; ?>admin-del.php<?php echo $id; ?>" class="buttondelete"> Delete Admin </a> 
+                                            <a href="<?php echo SiteURL; ?>admin-del.php?id=<?php echo $id; ?>" class="buttondelete"> Delete Admin </a> 
                                         </td>
                                     </tr>
 

@@ -1,10 +1,10 @@
 <?php include('data/header.php'); ?>
 <main>
     <div class ="box">
-        <b> <h1> Categorie</h1> </b>
+        <b> <h1> Category</h1> </b>
         <br>
 
-    <a href="#" class="buttoncategory"> Add Categorie</a>
+    <a href="#" class="buttoncategorie"> Add Category</a>
     <br>
     <br>
     <table>
