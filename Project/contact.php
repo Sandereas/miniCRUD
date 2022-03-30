@@ -1,44 +1,37 @@
 <?php include('data/header.php'); ?>
-<main>
-        <div class ="box">
-            <b> <h1> Contact</h1> </b>
-            <br>
+<?php include('../config/gebruikersimport.php'); ?>
 
-    <table>
-    <tr>
-        <th>ID</th>
-        <th>Gebruikersnaam</th>
-        <th>Email</th>
-        <th>Actions</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Sandereas</td>
-        <td>117194@student.roc-nijmegen.nl</td>
-        <td>
-            <a href="#" class="buttonupdate"> Update admin </a> 
-            <a href="#" class="buttondelete"> Delete Admin </a> 
-        </td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>Sandervdv</td>
-        <td>TTBSandereas@hotmail.nl</td>
-        <td>
-            <a href="#" class="buttonupdate"> Update admin </a> 
-            <a href="#" class="buttondelete"> Delete Admin </a> 
-        </td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>Sander</td>
-        <td>017194@student.roc-nijmegen.nl</td>
-        <td>
-            <a href="#" class="buttonupdate"> Update admin </a> 
-            <a href="#" class="buttondelete"> Delete Admin </a> 
-        </td>
-    </tr>
+<main>
+    <div class = "box">
+        <div class = "contacttext">
+            <h3> Voor meer contact kan je terrecht bij 1 van ons </h3>
+    
+
+
+        
+    
+
+    <table class = "tablecontact">
+        <tr>
+            <th>Naam</th>
+            <th>Email</th>
+            <th>Telefoonnummer</th>
+        </tr>
+        <tr>
+            <td> <?php echo $data[0]['naam'] ?> </td>
+            <td> <?php echo $data[0]['email'] ?> </td>
+            <td> <?php echo $data[0]['telefoonnummer'] ?></td>
+        </tr>
+        <tr>
+            <td> <?php echo $data[1]['naam'] ?> </td>
+            <td> <?php echo $data[1]['email'] ?> </td>
+            <td> <?php echo $data[1]['telefoonnummer'] ?></td>
+        </tr>
+        <tr>
+            <td> <?php echo $data[2]['naam'] ?> </td>
+            <td> <?php echo $data[2]['email'] ?> </td>
+            <td> <?php echo $data[2]['telefoonnummer'] ?></td>
+        </tr>
     </table>
-    </div> 
 </main>
 <?php include('data/footer.php'); ?>

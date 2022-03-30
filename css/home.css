@@ -7,7 +7,6 @@
 }
 
 .box {
-    /* border: 1px solid black; */
     padding: 1%;
     width: 80%;
 }
@@ -61,13 +60,38 @@ main {
     display: flex;
     flex-direction: row;
 }
-
+/* Footer */
+footer {
+    background-color: orange;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    color: white;
+    text-align: center;
+}
 
 
 /* table */
 
-table {
+.tableadmin {
     width: 100%;
+    text-align: center;
+    border: 2px solid black;
+    padding: 1px;
+    background-color: orange;
+    color: black;
+
+}
+.tableaddadmin {
+    width: 30%;
+    text-align: center;
+    border: 2px solid black;
+    padding: 1px;
+    background-color: orange;
+    color: black;
+}
+.tableaddfood {
+    width: 30%;
     text-align: center;
     border: 2px solid black;
     padding: 1px;
@@ -75,11 +99,20 @@ table {
     color: black;
 }
 
+.tablecontact {
+    width: 30%;
+    text-align: center;
+    border: 2px solid black;
+    padding: 1px;
+    background-color: orange;
+    color: black;
+    margin-top: 25px;
+}
+
+
 td {
     border: 1px solid black;
-}
-.tableaddadmin2 {
-    width: 30%;
+
 }
 
 /* Buttons */
@@ -158,12 +191,11 @@ td {
     color:white;
     background-color: black;
 }
-/* Footer */
-footer {
-    background-color: orange;
-    display: flex;
-    flex-direction: column;
-    border: 2px solid black;
-    color: white;
+/* contact css */
+.contacttext {
+    background-color: gray;
+    color: black;
+    width: 50%;
     text-align: center;
+    padding: 3px;
 }

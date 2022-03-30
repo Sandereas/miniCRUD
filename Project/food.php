@@ -4,7 +4,7 @@
         <b> <h1> Food list</h1> </b>
         <br>
 
-    <a href="#" class="buttonfood"> Add Food</a>
+        <a href="food-add.php" class="buttonadmin"> Add Food</a>
     <br>
     <br>
 

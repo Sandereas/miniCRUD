@@ -1,4 +1,5 @@
 <?php include('data/header.php'); ?>
+<?php include('../config/gebruikersimport.php') ?>
 
     <div class="mainer">
         <div class="box"> 
@@ -17,7 +18,7 @@
 
             <form action="" method="POST"> 
 
-            <table class ="tableaddadmin2">
+            <table class ="tableaddadmin">
                 <tr>
                     <td>Gebruikersnaam</td>
                     <td><input type="text" name="gebruikersnaam" placeholder="Typ hier uw gebruikersnaam" ></td> <br>
@@ -59,7 +60,6 @@
             </form>
         </div> 
     </div>
-<?php include('data/footer.php'); ?>
 
 <?php
     //Add Admin
@@ -77,32 +77,50 @@
     //insert in SQL
 
     $sql = "INSERT INTO gebruikers SET
-        gebruikersnaam ='$gebruikersnaam',
-        wachtwoord ='$wachtwoord',
-        email ='$email',
-        naam ='$naam',
-        woonplaats ='$woonplaats',
-        straatnaam='$straatnaam',
-        huisnummer='$huisnummer',
-        telefoonnummer = '$telefoonnummer'
+        gebruikersnaam = :gebruikersnaam,
+        wachtwoord =:wachtwoord,
+        email = :email,
+        naam = :naam,
+        woonplaats = :woonplaats,
+        straatnaam= :straatnaam,
+        huisnummer= :huisnummer,
+        telefoonnummer = :telefoonnummer
 
     ";
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute([
+    'gebruikersnaam' => $gebruikersnaam,
+    'wachtwoord' => $wachtwoord,
+    'email' => $email,
+    'naam' => $naam,
+    'woonplaats' => $woonplaats,
+    'straatnaam' => $straatnaam,
+    'huisnummer' => $huisnummer,
+    'telefoonnummer' => $telefoonnummer
+]); 
+$user = $stmt->fetch();
     
     // uitvoeren en opslaan in de database
 
 
-    $res = mysqli_query($conn, $sql) or die(mysqli_error());
+    //$res = PDO::query($conn, $sql) or die(PDO::errorCode() and PDO::errorInfo());
+    
 
-    if($res == TRUE)
-    {
+        if ($data > 0) {
+                $results_login = $stmt->fetch(PDO::FETCH_ASSOC);
+  
         //echo "data inserted";
         $_SESSION['add'] = "Admin Added Succesfull";
-        header("location:".SiteURL. 'project/admin.php');
-    }
+        header('admin.php');
+        }
     else {
         //echo "error";
         $_SESSION['add'] = "Failed to add Admin";
-        header("location:".SiteURL. 'project/admin-add.php');
+        header('admin-add.php');
     }
 }
+
 ?>
+
+<?php include('data/footer.php'); ?>

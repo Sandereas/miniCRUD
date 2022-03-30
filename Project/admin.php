@@ -1,4 +1,5 @@
 <?php include('data/header.php'); ?>
+<?php include('../config/gebruikersimport.php'); ?>
     <main>
         <div class ="box">
             <b> <h1> Editor The Web</h1> </b>
@@ -18,65 +19,43 @@
             <a href="admin-add.php" class="buttonadmin"> Add Admin</a>
             <br>
             <br>
+            
+                
+                <table class ="tableadmin">
 
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Gebruikersnaam</th>
-                    <th>Email</th>
-                    <th>Naam</th>
-                    <th>Actions</th>
-                </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Gebruikersnaam</th>
+                        <th>Email</th>
+                        <th>Naam</th>
+                        <th>Actions</th>
+                    </tr>
+                    
+    <?php 
+                foreach ($data as $row)  {?>
+                    <tr>
+                        <td> 
+                            <?php echo $row['id'];?>
+                        </td>
+                        <td>
+                            <?php echo $row['gebruikersnaam']; ?>
+                        </td>
+                        <td>
+                            <?php echo $row['email']; ?>
+                        </td>
+                        <td>
+                            <?php echo $row['naam']; ?>
+                        </td>
+                        <td>
+                            <a href="#" class="buttonupdate"> Update admin </a> 
+                            <a href="#" class="buttondelete"> Delete Admin </a> 
+                        </td>
+                    </tr>
+                    <?php } ?>
+                
 
-                <?php 
-
-                    $sql = "SELECT * FROM gebruikers";
-                    $res = mysqli_query($conn, $sql);
-
-                    if($res == TRUE) 
-                    {
-                        $count = mysqli_num_rows($res);
-
-                        $ids =1;
-                    }
-                        if($count>0)
-                        {
-                            while($rows=mysqli_fetch_assoc($res))
-                             // using while loop to get all the data from the database
-
-                            {
-                                $id = $rows['id'];
-                                $gebruikersnaam = $rows['gebruikersnaam'];
-                                $email = $rows ['email'];
-                                $naam = $rows['naam'];
-
-
-                                ?>
-
-                                    <tr>
-                                        <td><?php echo $ids ++ ?> </td>
-                                        <td><?php echo $gebruikersnaam; ?> </td>
-                                        <td><?php echo $email; ?> </td>
-                                        <td><?php echo $naam; ?> </td>
-                                        <td>
-                                            <a href="#" class="buttonupdate"> Update admin </a> 
-                                            <a href="<?php echo SiteURL; ?>admin-del.php?id=<?php echo $id; ?>" class="buttondelete"> Delete Admin </a> 
-                                        </td>
-                                    </tr>
-
-                                <?php
-
-
-
-                            }
-                            
-                        }
-                        else 
-                        {
-                            
-                        }
-                ?>
-            </table>
+                </table>
+                
         </div>
     </main>
 <?php include('data/footer.php'); ?>
