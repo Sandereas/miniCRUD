@@ -32,7 +32,7 @@
                     </tr>
                     
     <?php 
-                foreach ($data as $row)  {?>
+                foreach ($datageb as $row)  {?>
                     <tr>
                         <td> 
                             <?php echo $row['id'];?>

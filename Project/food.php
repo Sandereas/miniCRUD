@@ -1,4 +1,6 @@
 <?php include('data/header.php'); ?>
+<?php include('../config/foodimport.php'); ?>
+
 <main>
     <div class ="box">
         <b> <h1> Food list</h1> </b>
@@ -11,38 +13,38 @@
     <table>
     <tr>
         <th>ID</th>
-        <th>Gebruikersnaam</th>
-        <th>Email</th>
-        <th>Actions</th>
+        <th>Productnaam</th>
+        <th>Categorie</th>
+        <th>Afbeelding</th>
+        <th>Prijs</th>
+        <th>Beschrijving</th>
     </tr>
-    <tr>
-        <td>1</td>
-        <td>Sandereas</td>
-        <td>117194@student.roc-nijmegen.nl</td>
-        <td>
-            <a href="#" class="buttonupdate"> Update admin </a> 
-            <a href="#" class="buttondelete"> Delete Admin </a> 
-        </td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>Sandervdv</td>
-        <td>TTBSandereas@hotmail.nl</td>
-        <td>
-            <a href="#" class="buttonupdate"> Update admin </a> 
-            <a href="#" class="buttondelete"> Delete Admin </a> 
-        </td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>Sander</td>
-        <td>017194@student.roc-nijmegen.nl</td>
-        <td>
-            <a href="#" class="buttonupdate"> Update admin </a> 
-            <a href="admin-del.php" class="buttondelete"> Delete Admin </a> 
-        </td>
-    </tr>
-    </table>
+    <?php 
+                foreach ($datafood as $row)  {?>
+                    <tr>
+                        <td> 
+                            <?php echo $row['id'];?>
+                        </td>
+                        <td>
+                            <?php echo $row['productnaam']; ?>
+                        </td>
+                        <td>
+                            <?php echo $row['categorie']; ?>
+                        </td>
+                        <td>
+                            <?php echo $row['afbeelding']; ?>
+                        </td>
+                        <td>
+                            <?php echo $row['prijs']; ?>
+                        </td>
+                        <td>
+                            <?php echo $row['beschrijving']; ?>
+                        </td>
+                        </td>
+                    </tr>
+                    <?php } ?>
+
+                </table>
     </div>
 </main>
 <?php include('data/footer.php'); ?>

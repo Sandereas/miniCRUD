@@ -4,7 +4,7 @@
 <main>
     <div class = "box">
         <div class = "contacttext">
-            <h3> Voor meer contact kan je terrecht bij 1 van ons </h3>
+            <h3> Voor meer informatie kan je terrecht bij 1 van ons </h3>
     
 
 
@@ -18,19 +18,19 @@
             <th>Telefoonnummer</th>
         </tr>
         <tr>
-            <td> <?php echo $data[0]['naam'] ?> </td>
-            <td> <?php echo $data[0]['email'] ?> </td>
-            <td> <?php echo $data[0]['telefoonnummer'] ?></td>
+            <td> <?php echo $datageb[0]['naam'] ?> </td>
+            <td> <?php echo $datageb[0]['email'] ?> </td>
+            <td> <?php echo $datageb[0]['telefoonnummer'] ?></td>
         </tr>
         <tr>
-            <td> <?php echo $data[1]['naam'] ?> </td>
-            <td> <?php echo $data[1]['email'] ?> </td>
-            <td> <?php echo $data[1]['telefoonnummer'] ?></td>
+            <td> <?php echo $datageb[1]['naam'] ?> </td>
+            <td> <?php echo $datageb[1]['email'] ?> </td>
+            <td> <?php echo $datageb[1]['telefoonnummer'] ?></td>
         </tr>
         <tr>
-            <td> <?php echo $data[2]['naam'] ?> </td>
-            <td> <?php echo $data[2]['email'] ?> </td>
-            <td> <?php echo $data[2]['telefoonnummer'] ?></td>
+            <td> <?php echo $datageb[2]['naam'] ?> </td>
+            <td> <?php echo $datageb[2]['email'] ?> </td>
+            <td> <?php echo $datageb[2]['telefoonnummer'] ?></td>
         </tr>
     </table>
 </main>

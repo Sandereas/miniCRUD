@@ -17,8 +17,9 @@
             <br>
 
             <form action="" method="POST"> 
-
+            
             <table class ="tableaddadmin">
+
                 <tr>
                     <td>Gebruikersnaam</td>
                     <td><input type="text" name="gebruikersnaam" placeholder="Typ hier uw gebruikersnaam" ></td> <br>
@@ -107,7 +108,7 @@ $user = $stmt->fetch();
     //$res = PDO::query($conn, $sql) or die(PDO::errorCode() and PDO::errorInfo());
     
 
-        if ($data > 0) {
+        if ($datageb > 0) {
                 $results_login = $stmt->fetch(PDO::FETCH_ASSOC);
   
         //echo "data inserted";
@@ -120,7 +121,8 @@ $user = $stmt->fetch();
         header('admin-add.php');
     }
 }
+    ?>
+    <script src="js.main.js"></script>
 
-?>
 
 <?php include('data/footer.php'); ?>

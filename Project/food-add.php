@@ -1,4 +1,6 @@
 <?php include('data/header.php'); ?>
+<?php include ('../config/foodimport.php'); ?>
+
 <div class="mainer">
         <div class="box"> 
             <h1> Add Food</h1>
@@ -35,11 +37,11 @@
                 </tr>
                 <tr>
                     <td>Beschrijving</td>
-                    <td><input type="text" name="beschrijvig" placeholder="Typ hier uw beschrijving" ></td> <br>
+                    <td><input type="text" name="beschrijving" placeholder="Typ hier uw beschrijving" ></td> <br>
 
                 <tr>
                     <td colspan="2">
-                        <input type="submit" name="submit" value="Add Admin" class="buttonsub">
+                        <input type="submit" name="submit" value="Add Food" class="buttonsub">
                     </td>
                 </tr>
             </table>
@@ -51,11 +53,11 @@
     //Add Admin
     if(isset($_POST['submit']))
 {
-    $Productnaam = $_POST ['productnaam'];
-    $Categorie = $_POST ['categorie'];
-    $Afbeelding = $_POST ['afbeelding'];
-    $Prijs = $_POST ['prijs'];
-    $Beschrijving = $_POST ['beschrijving'];
+    $productnaam = $_POST ['productnaam'];
+    $categorie = $_POST ['categorie'];
+    $afbeelding = $_POST ['afbeelding'];
+    $prijs = $_POST ['prijs'];
+    $beschrijving = $_POST ['beschrijving'];
 
     //insert in SQL
 
@@ -73,7 +75,7 @@ $stmt->execute([
     'categorie' => $categorie,
     'afbeelding' => $afbeelding,
     'prijs' => $prijs,
-    'beschrijving' => $beschrijving,
+    'beschrijving' => $beschrijving
 ]); 
 
 $user = $stmt->fetch();
@@ -84,7 +86,7 @@ $user = $stmt->fetch();
     //$res = PDO::query($conn, $sql) or die(PDO::errorCode() and PDO::errorInfo());
     
 
-        if ($data > 0) {
+        if ($datafood > 0) {
                 $results_login = $stmt->fetch(PDO::FETCH_ASSOC);
   
         //echo "data inserted";

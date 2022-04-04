@@ -1,6 +1,6 @@
     <?php 
         $stmt = $pdo->prepare("SELECT * FROM gebruikers");
         $stmt->execute();
-        $data = $stmt->fetchall();  
-        //var_dump($data);        
+        $datageb = $stmt->fetchall();  
+        //var_dump($datageb);        
     ?>
