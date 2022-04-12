@@ -1,4 +1,17 @@
 <?php include('data/header.php'); ?>
+<?php include('../config/gebruikersimport.php'); ?>
+
+<?php
+ if($_SESSION['loggedin'] == true){
+     echo "Welcome ". $_SESSION['gebruikersnaam'];
+ }
+ else {
+         header("Location: login.php");
+         
+     }
+     
+?>
+
 <main>
     <div class ="box">
         <b> <h1> Category</h1> </b>

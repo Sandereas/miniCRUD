@@ -1,6 +1,18 @@
 <?php include('data/header.php'); ?>
 <?php include ('../config/foodimport.php'); ?>
 
+<?php
+ if($_SESSION['loggedin'] == true){
+     echo "Welcome ". $_SESSION['gebruikersnaam'];
+ }
+ else {
+         header("Location: login.php");
+         
+     }
+     
+
+?>
+
 <div class="mainer">
         <div class="box"> 
             <h1> Add Food</h1>

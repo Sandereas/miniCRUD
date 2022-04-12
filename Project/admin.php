@@ -1,5 +1,17 @@
 <?php include('data/header.php'); ?>
 <?php include('../config/gebruikersimport.php'); ?>
+
+<?php
+ if($_SESSION['loggedin'] == true){
+     echo "Welcome ". $_SESSION['gebruikersnaam'];
+ }
+ else {
+         header("Location: login.php");
+         
+     }
+     
+
+?>
     <main>
         <div class ="box">
             <b> <h1> Editor The Web</h1> </b>
@@ -46,10 +58,12 @@
                         <td>
                             <?php echo $row['naam']; ?>
                         </td>
-                        <td>
-                            <a href="#" class="buttonupdate"> Update admin </a> 
-                            <a href="#" class="buttondelete"> Delete Admin </a> 
+                        
+                        <td colspan="2">
+                        <a href="admin-change.php?id=<?php echo $row['id']; ?>" class="buttonupdate"> Update Admin </a> 
                         </td>
+                        <td colspan="2">
+                        <a href="admin-del.php?id=<?php echo $row['id']; ?>" class="buttondelete"> Delete Admin </a> 
                     </tr>
                     <?php } ?>
                 

@@ -1,18 +1,23 @@
-const login[];
+const loginForm = document.querySelector('#login');
 
-    document.getElementById
-    <button onclick="document.getElementById('id01').style.display='block'">Login</button>
-    event??
-{ 
-    if (form.gebruikersnaam.value == "" || form.password.value == "" || form.email.value == "" || form.naam.value == ""){
-        alert("DUDE u forgot important information");
-        return false;
-}
-    else 
-    {
-        if (value.length < 16) {
-            return false;
+loginForm.addEventListener('submit', (e) =>  {
+    const usernameField = document.querySelector('#gebruikersnaam');
+    const passwordField = document.querySelector('#wachtwoord');
+
+    const usernameArray = usernameField.value.split(''); 
+
+    if (usernameField.value = '' || passwordField.value == '') {
+        alert('vul alle velden in');
+        e.preventdefautl();
+    } else {
+        usernameArray.filter(() => {
+            if(karakter == '@', '!', ',', '#', '$','%', '&', '*', '^', '(', ')', '<', '>', '?', '/', '.', '`', '~', ';', ':', "'", '"', '-', '+', '=', '_', '{', '[', ']', '}', '|'  ) {
+            alert('Gebruikersnaam mag geen tekens bevatten');
+            e.preventdefautl();
         }
-        else {return (true);}
-     }
-}
+            else {
+                alert('Gebruikersnaam is correct');
+            }
+        })
+    }
+});

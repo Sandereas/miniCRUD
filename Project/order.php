@@ -1,4 +1,17 @@
 <?php include('data/header.php'); ?>
+
+<?php
+ if($_SESSION['loggedin'] == true){
+     echo "Welcome ". $_SESSION['gebruikersnaam'];
+ }
+ else {
+         header("Location: login.php");
+         
+     }
+     
+
+?>
+
 <main>
         <div class ="box">
             <b> <h1> Order now!</h1> </b>

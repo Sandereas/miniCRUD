@@ -117,6 +117,15 @@ td {
 
 /* Buttons */
 
+.buttonhome {
+    padding: 1%;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.buttonhome:hover {
+    color:white;
+}
 .buttonadmin {
     background-color: chocolate;
     padding: 1%;

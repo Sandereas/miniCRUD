@@ -1,6 +1,18 @@
 <?php include('data/header.php'); ?>
 <?php include('../config/foodimport.php'); ?>
 
+<?php
+ if($_SESSION['loggedin'] == true){
+     echo "Welcome ". $_SESSION['gebruikersnaam'];
+ }
+ else {
+         header("Location: login.php");
+         
+     }
+     
+
+?>
+
 <main>
     <div class ="box">
         <b> <h1> Food list</h1> </b>
@@ -40,6 +52,11 @@
                         <td>
                             <?php echo $row['beschrijving']; ?>
                         </td>
+                        <td>
+                        <a href="food-change.php?id=<?php echo $row['id']; ?>" class="buttonupdate"> Update Food </a> 
+                        </td>
+                        <td colspan="2">
+                        <a href="food-del.php?id=<?php echo $row['id']; ?>" class="buttondelete"> Delete Food </a> 
                         </td>
                     </tr>
                     <?php } ?>

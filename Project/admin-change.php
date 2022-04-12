@@ -1,22 +1,8 @@
+
 <?php include('data/header.php'); ?>
 <?php include('../config/gebruikersimport.php') ?>
 
-    <div class="mainer">
-        <div class="box"> 
-            <h1> Add Admin</h1>
-
-            <br>
-
-            <?php
-                if(isset($_SESSION['add']))
-                 {
-                    echo $_SESSION['add'];
-                    unset($_SESSION['add']);
-                 }
-            ?>
-            <br>
-
-            <form action="" method="POST"> 
+<form action="" method="POST"> 
             
             <table class ="tableaddadmin">
 
@@ -54,7 +40,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="submit" name="submit" value="Add Admin" class="buttonsub">
+                        <input type="submit" name="submit" value="Update Admin" class="buttonupdate">
                     </td>
                 </tr>
             </table>
@@ -62,9 +48,12 @@
         </div> 
     </div>
 
+
+
+
 <?php
-    //Add Admin
-    if(isset($_POST['submit']))
+
+if(isset($_POST['submit']))
 {
     $gebruikersnaam = $_POST ['gebruikersnaam'];
     $wachtwoord = ($_POST ['wachtwoord']);
@@ -75,22 +64,13 @@
     $huisnummer = $_POST ['huisnummer'];
     $telefoonnummer = $_POST ['telefoonnummer'];
 
-    //insert in SQL
 
-    $sql = "INSERT INTO gebruikers SET
-        gebruikersnaam = :gebruikersnaam,
-        wachtwoord =:wachtwoord,
-        email = :email,
-        naam = :naam,
-        woonplaats = :woonplaats,
-        straatnaam= :straatnaam,
-        huisnummer= :huisnummer,
-        telefoonnummer = :telefoonnummer
 
-    ";
+// $sql = "UPDATE gebruikers SET gebruikersnaam=?, wachtwoord=?, email=?, naam=?, woonplaats=?, straatnaam=?, huisnummer=?, telefoonnumer=? WHERE id=?";
+// $stmt= $pdo->prepare($sql);
+// $stmt->execute([$gebruikersnaam, $wachtwoord, $email, $woonplaats, $straatnaam, $huisnnummer, $telefoonnummer, $id]);
 
-$stmt = $pdo->prepare($sql);
-$stmt->execute([
+$updateadmin = [
     'gebruikersnaam' => $gebruikersnaam,
     'wachtwoord' => $wachtwoord,
     'email' => $email,
@@ -98,31 +78,18 @@ $stmt->execute([
     'woonplaats' => $woonplaats,
     'straatnaam' => $straatnaam,
     'huisnummer' => $huisnummer,
-    'telefoonnummer' => $telefoonnummer
-]); 
-$gebruikers = $stmt->fetch();
-    
-    // uitvoeren en opslaan in de database
+    'telefoonnummer' => $telefoonnummer,
+    'id' => $_GET['id'],
+];
+$sql = "UPDATE gebruikers SET gebruikersnaam=:gebruikersnaam, wachtwoord=:wachtwoord, email=:email, naam=:naam, woonplaats=:woonplaats, straatnaam=:straatnaam, huisnummer=:huisnummer, telefoonnummer=:telefoonnummer  WHERE id=:id";
+$stmt= $pdo->prepare($sql);
+$stmt->execute($updateadmin);
 
 
-    //$res = PDO::query($conn, $sql) or die(PDO::errorCode() and PDO::errorInfo());
-    
 
-        if ($datageb > 0) {
-                $results_login = $stmt->fetch(PDO::FETCH_ASSOC);
-  
-        //echo "data inserted";
-        $_SESSION['add'] = "Admin Added Succesfull";
-        header('admin.php');
-        }
-    else {
-        //echo "error";
-        $_SESSION['add'] = "Failed to add Admin";
-        header('admin-add.php');
-    }
+
+
+
+
 }
-    ?>
-    <script src="js.main.js"></script>
-
-
-<?php include('data/footer.php'); ?>    
+ ?>
