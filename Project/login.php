@@ -33,7 +33,7 @@ if(isset($_POST['gebruikersnaam']) && isset($_POST['wachtwoord'])){
 
 
 
-<form action="login.php" method="post" onSubmit= "return loginForm()">
+<form action="login.php" method="post"> <! --- onSubmit= "return loginForm()"> 
     <label for="gebruikersnaam">First name:</label><br>
     <input type="text" id="gebruikersnaam" name="gebruikersnaam" value="" placeholder="gebruikersnaam"><br>
     <label for="wachtwoord">password:</label><br>

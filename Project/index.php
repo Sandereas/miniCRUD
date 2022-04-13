@@ -1,4 +1,5 @@
 <?php include('data/header.php'); ?>
+
     <main>
         <div class ="box">
             <b> <h1> Dashboard </h1> </b>
@@ -13,6 +14,11 @@
             <a href="login.php" class="buttonhome"> <h1> Login </h1> </a>  <br>
                 GG
             </div>
+
+            <div class="container">
+            <a href="logout.php" class="buttonhome"> <h1> Logout </h1> </a>  <br>
+                GG
+            </div>
             
             <div class="container">
             <a href="Contact.php" class="buttonhome"> <h1> Contact  </h1> </a>  <br>
@@ -21,3 +27,6 @@
         </div>
     </main>
     <?php include('data/footer.php'); ?>
+
+
+    <!-- WHERE CustomerName LIKE '%or%' 

@@ -21,8 +21,7 @@
         <a href="food-add.php" class="buttonadmin"> Add Food</a>
     <br>
     <br>
-
-    <table>
+    <table class ="tablefood">
     <tr>
         <th>ID</th>
         <th>Productnaam</th>
@@ -44,7 +43,7 @@
                             <?php echo $row['categorie']; ?>
                         </td>
                         <td>
-                            <?php echo $row['afbeelding']; ?>
+                        <img class="imgstyle" src="../assets\images/<?php echo $row['afbeelding']; ?>">
                         </td>
                         <td>
                             <?php echo $row['prijs']; ?>
