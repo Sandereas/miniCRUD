@@ -2,6 +2,18 @@
 <?php include('data/header.php'); ?>
 <?php include('../config/foodimport.php') ?>
 
+<?php
+ if($_SESSION['loggedin'] == true){
+     echo "GG ". $_SESSION['gebruikersnaam'];
+ }
+ else {
+         header("Location: login.php");
+         
+     }
+     
+
+?>
+
 <form action="" method="POST"> 
             
             <table class ="tableaddadmin">
@@ -27,6 +39,9 @@
                     <td><input type="text" name="beschrijving" placeholder="Vul hier de beschrijving in" ></td> <br>
                 </tr>
                 <tr>
+                    <td>Voorraad</td>
+                    <td><input type="text" name="voorraad" placeholder="Vul hier de voorraad in" ></td> <br>
+                </tr>
 
                 <tr>
                     <td colspan="2">
@@ -50,13 +65,9 @@ if(isset($_POST['submit']))
     $afbeelding = $_POST['afbeelding'];
     $prijs = $_POST['prijs'];
     $beschrijving = $_POST['beschrijving'];
+    $voorraad = $_POST['voorraad'];
 
 
-
-
-// $sql = "UPDATE gebruikers SET gebruikersnaam=?, wachtwoord=?, email=?, naam=?, woonplaats=?, straatnaam=?, huisnummer=?, telefoonnumer=? WHERE id=?";
-// $stmt= $pdo->prepare($sql);
-// $stmt->execute([$gebruikersnaam, $wachtwoord, $email, $woonplaats, $straatnaam, $huisnnummer, $telefoonnummer, $id]);
 
 $updatefood = [
     'productnaam' => $productnaam,
@@ -64,11 +75,24 @@ $updatefood = [
     'afbeelding' => $afbeelding,
     'prijs' => $prijs,
     'beschrijving' => $beschrijving,
+    'voorraad' => $voorraad,
     'id' => $_GET['id'],
 ];
-$sql = "UPDATE menukaart SET productnaam=:productnaam, categorie=:categorie, afbeelding=:afbeelding, prijs=:prijs, beschrijving=:beschrijving  WHERE id=:id";
+$sql = "UPDATE menukaart SET productnaam=:productnaam, categorie=:categorie, afbeelding=:afbeelding, prijs=:prijs, beschrijving=:beschrijving, voorraad=:voorraad WHERE id=:id";
 $stmt= $pdo->prepare($sql);
 $stmt->execute($updatefood);
 }
 
 
+if ($datafood > 0) {
+    $results_login = $stmt->fetch(PDO::FETCH_ASSOC);
+
+//echo "data inserted";
+$_SESSION['Food'] = "Food changed Succesfull";
+header('Location:food.php');
+}
+else {
+//echo "error";
+$_SESSION['Food'] = "Failed to change Food";
+header('Location:food.php');
+}

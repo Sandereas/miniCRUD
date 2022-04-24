@@ -3,20 +3,29 @@
 
 <?php
  if($_SESSION['loggedin'] == true){
-     echo "Welcome ". $_SESSION['gebruikersnaam'];
+     echo "GG ". $_SESSION['gebruikersnaam'];
  }
  else {
          header("Location: login.php");
          
      }
      
-
 ?>
+
 
 <main>
     <div class ="box">
         <b> <h1> Food list</h1> </b>
         <br>
+        <br>
+
+        <?php if(isset($_SESSION['Food']))
+                 {
+                    echo $_SESSION['Food'];
+                    unset($_SESSION['Food']);
+                 }
+        ?>
+        <br> <br>
 
         <a href="food-add.php" class="buttonadmin"> Add Food</a>
     <br>
@@ -29,6 +38,7 @@
         <th>Afbeelding</th>
         <th>Prijs</th>
         <th>Beschrijving</th>
+        <th>Voorraad</th>
     </tr>
     <?php 
                 foreach ($datafood as $row)  {?>
@@ -46,10 +56,13 @@
                         <img class="imgstyle" src="../assets\images/<?php echo $row['afbeelding']; ?>">
                         </td>
                         <td>
-                            <?php echo $row['prijs']; ?>
+                        € <?php echo $row['prijs']; ?>
                         </td>
                         <td>
                             <?php echo $row['beschrijving']; ?>
+                        </td>
+                        <td>
+                            <?php echo $row['voorraad']; ?>
                         </td>
                         <td>
                         <a href="food-change.php?id=<?php echo $row['id']; ?>" class="buttonupdate"> Update Food </a> 

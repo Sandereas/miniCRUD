@@ -1,9 +1,9 @@
 <?php include('data/header.php'); ?>
-<?php include('../config/gebruikersimport.php') ?>
+<?php include ('../config/foodimport.php'); ?>
 
 <?php
  if($_SESSION['loggedin'] == true){
-     echo "Welcome ". $_SESSION['gebruikersnaam'];
+     echo "GG ". $_SESSION['gebruikersnaam'];
  }
  else {
          header("Location: login.php");
@@ -23,3 +23,21 @@ $delfood = [
 $sql = "DELETE FROM menukaart WHERE id = :id";
 $stmt= $pdo->prepare($sql);
 $stmt->execute($delfood);
+
+if ($datafood > 0) {
+  $results_login = $stmt->fetch(PDO::FETCH_ASSOC);
+
+  //echo "data inserted";
+  $_SESSION['Food'] = "Food Deleted Succesfull";
+  header('Location:Food.php');
+  }
+  else {
+  echo "error";
+  }
+
+
+?>
+
+
+
+<?php include('data/footer.php'); ?>

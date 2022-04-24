@@ -3,7 +3,7 @@
 
 <?php
  if($_SESSION['loggedin'] == true){
-     echo "Welcome ". $_SESSION['gebruikersnaam'];
+     echo "GG ". $_SESSION['gebruikersnaam'];
  }
  else {
          header("Location: login.php");
@@ -25,7 +25,7 @@
                     echo $_SESSION['add'];
                     unset($_SESSION['add']);
                  }
-            ?>
+             ?>
             <br> <br>
 
             <a href="admin-add.php" class="buttonadmin"> Add Admin</a>

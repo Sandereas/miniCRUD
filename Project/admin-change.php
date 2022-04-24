@@ -2,6 +2,18 @@
 <?php include('data/header.php'); ?>
 <?php include('../config/gebruikersimport.php') ?>
 
+<?php
+ if($_SESSION['loggedin'] == true){
+     echo "GG ". $_SESSION['gebruikersnaam'];
+ }
+ else {
+         header("Location: login.php");
+         
+     }
+     
+
+?>
+
 <form action="" method="POST"> 
             
             <table class ="tableaddadmin">
@@ -65,11 +77,6 @@ if(isset($_POST['submit']))
     $telefoonnummer = $_POST ['telefoonnummer'];
 
 
-
-// $sql = "UPDATE gebruikers SET gebruikersnaam=?, wachtwoord=?, email=?, naam=?, woonplaats=?, straatnaam=?, huisnummer=?, telefoonnumer=? WHERE id=?";
-// $stmt= $pdo->prepare($sql);
-// $stmt->execute([$gebruikersnaam, $wachtwoord, $email, $woonplaats, $straatnaam, $huisnnummer, $telefoonnummer, $id]);
-
 $updateadmin = [
     'gebruikersnaam' => $gebruikersnaam,
     'wachtwoord' => $wachtwoord,
@@ -85,7 +92,18 @@ $sql = "UPDATE gebruikers SET gebruikersnaam=:gebruikersnaam, wachtwoord=:wachtw
 $stmt= $pdo->prepare($sql);
 $stmt->execute($updateadmin);
 
+    if ($datageb > 0) {
+    $results_login = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    //echo "data inserted";
+    $_SESSION['add'] = "Admin Changed Succesfull";
+    header('Location:admin.php');
+    }
+    else {
+    //echo "error";
+    $_SESSION['add'] = "Failed to Change Admin";
+    header('Location:admin.php');
+    }
 
 
 

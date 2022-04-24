@@ -24,9 +24,12 @@
             <a href="Contact.php" class="buttonhome"> <h1> Contact  </h1> </a>  <br>
                 GG
             </div>
+        </div>    
+    
+        <div class="Image">
+        <img src="../assets/images/GG.png" alt="GG Logo">
         </div>
     </main>
     <?php include('data/footer.php'); ?>
 
-
-    <!-- WHERE CustomerName LIKE '%or%' 
+ 

@@ -3,7 +3,7 @@
 
 <?php
  if($_SESSION['loggedin'] == true){
-     echo "Welcome ". $_SESSION['gebruikersnaam'];
+     echo "GG ". $_SESSION['gebruikersnaam'];
  }
  else {
          header("Location: login.php");
@@ -20,10 +20,10 @@
             <br>
 
             <?php
-                if(isset($_SESSION['add']))
+                if(isset($_SESSION['Food']))
                  {
-                    echo $_SESSION['add'];
-                    unset($_SESSION['add']);
+                    echo $_SESSION['Food'];
+                    unset($_SESSION['Food']);
                  }
             ?>
             <br>
@@ -50,7 +50,11 @@
                 <tr>
                     <td>Beschrijving</td>
                     <td><input type="text" name="beschrijving" placeholder="Typ hier uw beschrijving" ></td> <br>
-
+                </tr>
+                <tr>
+                    <td>Voorraad</td>
+                    <td><input type="text" name="voorraad" placeholder="Typ hier de voorraad in" ></td> <br>
+                </tr>
                 <tr>
                     <td colspan="2">
                         <input type="submit" name="submit" value="Add Food" class="buttonsub">
@@ -70,6 +74,7 @@
     $afbeelding = $_POST ['afbeelding'];
     $prijs = $_POST ['prijs'];
     $beschrijving = $_POST ['beschrijving'];
+    $voorraad = $_POST ['voorraad'];
 
     //insert in SQL
 
@@ -78,7 +83,8 @@
         categorie =:categorie,
         afbeelding = :afbeelding,
         prijs = :prijs,
-        beschrijving = :beschrijving
+        beschrijving = :beschrijving,
+        voorraad = :voorraad
     ";
 
 $stmt = $pdo->prepare($sql);
@@ -87,7 +93,8 @@ $stmt->execute([
     'categorie' => $categorie,
     'afbeelding' => $afbeelding,
     'prijs' => $prijs,
-    'beschrijving' => $beschrijving
+    'beschrijving' => $beschrijving,
+    'voorraad' => $voorraad
 ]); 
 
 $user = $stmt->fetch();
@@ -102,13 +109,13 @@ $user = $stmt->fetch();
                 $results_login = $stmt->fetch(PDO::FETCH_ASSOC);
   
         //echo "data inserted";
-        $_SESSION['add'] = "Admin Added Succesfull";
-        header('food.php');
+        $_SESSION['Food'] = "Food Added Succesfull";
+        header('Location:food.php');
         }
     else {
         //echo "error";
-        $_SESSION['add'] = "Failed to add Admin";
-        header('food-add.php');
+        $_SESSION['Food'] = "Failed to add Food";
+        header('Location:food-add.php');
     }
 }
 

@@ -3,7 +3,7 @@
 
 <?php
  if($_SESSION['loggedin'] == true){
-     echo "Welcome ". $_SESSION['gebruikersnaam'];
+     echo "GG ". $_SESSION['gebruikersnaam'];
  }
  else {
          header("Location: login.php");
@@ -12,7 +12,6 @@
      
 
 ?>
-
 
 <?php 
 
@@ -24,26 +23,16 @@ $sql = "DELETE FROM gebruikers WHERE id = :id";
 $stmt= $pdo->prepare($sql);
 $stmt->execute($deladmin);
 
+if ($datageb > 0) {
+  $results_login = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
-// function deleteadmin($id) {
-
-// $sql = "DELETE FROM gebruikers WHERE id=:id";
-
-// $stmt = $this->pdo->prepare($sql);
-// $stmt->bindvalue(':id', $id);
-
-// $stmt->execute();
-
-// return $stmt->rowCount();
-//}
- //if ($datageb->query($sql) === TRUE) {
-   //echo "Food deleted successfully";
- //} else {
-   //echo "Error deleting food:";
- //}
-
- //$datageb->close();
+  //echo "data inserted";
+  $_SESSION['add'] = "Admin Deleted Succesfull";
+  header('Location:admin.php');
+  }
+  else {
+  echo "error";
+  }
 
 ?>
 <?php include('data/footer.php'); ?>

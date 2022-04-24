@@ -7,13 +7,13 @@
 
             <br>
 
-            <?php
+             <?php
                 if(isset($_SESSION['add']))
                  {
                     echo $_SESSION['add'];
                     unset($_SESSION['add']);
                  }
-            ?>
+             ?>
             <br>
 
             <form action="" method="POST"> 
@@ -105,20 +105,18 @@ $gebruikers = $stmt->fetch();
     // uitvoeren en opslaan in de database
 
 
-    //$res = PDO::query($conn, $sql) or die(PDO::errorCode() and PDO::errorInfo());
-    
 
         if ($datageb > 0) {
                 $results_login = $stmt->fetch(PDO::FETCH_ASSOC);
   
         //echo "data inserted";
         $_SESSION['add'] = "Admin Added Succesfull";
-        header('admin.php');
+        header('Location:admin.php');
         }
     else {
         //echo "error";
         $_SESSION['add'] = "Failed to add Admin";
-        header('admin-add.php');
+        header('Location:admin-add.php');
     }
 }
     ?>
